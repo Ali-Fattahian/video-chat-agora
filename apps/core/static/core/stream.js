@@ -1,4 +1,4 @@
-const APP_ID = "e4f8a3e36b8641ca8a71031084c1c3e8";
+const APP_ID = "AGORA APP API ID";
 const TOKEN = sessionStorage.getItem("token");
 const CHANNEL = sessionStorage.getItem("room");
 let UID = sessionStorage.getItem("UID");
