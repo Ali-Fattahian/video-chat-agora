@@ -3,7 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-BASE_DIR = Path(__file__).resolve().parent.parent
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
@@ -55,13 +56,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'video_chat.wsgi.application'
-
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_LOCAL_ENGINE'),
-        'NAME': os.getenv('DB_LOCAL_NAME'),
-    }
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
