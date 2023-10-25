@@ -2,14 +2,12 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import random
 import time
+import os
 from agora_token_builder import RtcTokenBuilder
 from .models import RoomMember
 import json
 from django.views.decorators.csrf import csrf_exempt
 
-
-
-# Create your views here.
 
 def lobby(request):
     return render(request, 'core/lobby.html')
@@ -19,8 +17,8 @@ def room(request):
 
 
 def getToken(request):
-    appId = 'e4f8a3e36b8641ca8a71031084c1c3e8'
-    appCertificate = '56d280e7d1f0481fbf44d4c3c0d594ad'
+    appId = os.environ.get('AGORA_APP_ID')
+    appCertificate = os.environ.get('AGORA_APP_CERTIFICATE')
     channelName = request.GET.get('channel')
     uid = random.randint(1, 230)
     expirationTimeInSeconds = 3600
